@@ -1,0 +1,203 @@
+:root {
+  --apple-bg: #f5f5f7;
+  --apple-text: #1d1d1f;
+  --apple-text-muted: #86868b;
+  --apple-card-bg: rgba(255, 255, 255, 0.8);
+  --apple-blue: #0071e3;
+  --apple-blue-hover: #0077ed;
+  --apple-border: rgba(0, 0, 0, 0.1);
+  --apple-nav-bg: rgba(255, 255, 255, 0.72);
+  --apple-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --apple-radius: 18px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--apple-bg);
+  color: var(--apple-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--apple-nav-bg) !important;
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--apple-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.8rem 0;
+}
+
+.navbar-brand, .nav-link {
+  color: var(--apple-text) !important;
+  font-weight: 500;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+/* Cards & Containers */
+.apple-card {
+  background: var(--apple-card-bg);
+  border-radius: var(--apple-radius);
+  box-shadow: var(--apple-shadow);
+  border: 1px solid var(--apple-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.apple-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.apple-card-body {
+  padding: 1.5rem;
+}
+
+/* Buttons */
+.btn-apple, .btn-primary, .btn-success, .btn-outline-dark {
+  background-color: var(--apple-blue);
+  color: white !important;
+  border: none;
+  border-radius: 980px;
+  padding: 0.5rem 1.2rem;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-apple:hover, .btn-primary:hover, .btn-success:hover {
+  background-color: var(--apple-blue-hover);
+  transform: scale(1.02);
+}
+
+.btn-apple:active, .btn-primary:active, .btn-success:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #e5e5ea;
+  color: var(--apple-text) !important;
+  border: none;
+  border-radius: 980px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background-color: #d1d1d6;
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--apple-text) !important;
+  border: 1px solid var(--apple-text);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--apple-text);
+  color: white !important;
+}
+
+.btn-link {
+  color: var(--apple-blue);
+  text-decoration: none;
+}
+.btn-link:hover {
+  text-decoration: underline;
+  color: var(--apple-blue-hover);
+}
+
+/* Lists */
+.list-group {
+  border-radius: var(--apple-radius);
+  overflow: hidden;
+  box-shadow: var(--apple-shadow);
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid var(--apple-border);
+  padding: 1.2rem 1.5rem;
+  font-size: 17px;
+  background-color: white;
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Forms */
+.form-control, .form-select {
+  border-radius: 12px;
+  border: 1px solid var(--apple-border);
+  padding: 0.8rem 1rem;
+  font-size: 15px;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--apple-text);
+  font-size: 14px;
+  margin-bottom: 0.4rem;
+}
+
+/* Images */
+.apple-img {
+  border-radius: 12px;
+  box-shadow: var(--apple-shadow);
+  transition: transform 0.3s ease;
+}
+
+.apple-img:hover {
+  transform: scale(1.02);
+}
+
+/* Typography */
+.text-muted {
+  color: var(--apple-text-muted) !important;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+/* Alert */
+.alert {
+  border-radius: 12px;
+  border: none;
+  background-color: rgba(0, 113, 227, 0.1);
+  color: var(--apple-blue);
+  font-weight: 500;
+}

@@ -1,10 +1,22 @@
-<h1>New Place</h1>
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <div class="apple-card border-0">
+      <div class="text-center mb-4">
+        <h1 class="fw-bold">New Place</h1>
+        <p class="text-muted">Add a new destination to your journal.</p>
+      </div>
 
-<form action="/places" method="post">
-  <p>
-    <label for="name_input">Name</label>
-    <input type="text" name="name" id="name_input">
-  </p>
-
-  <button>Save</button>
-</form>
+      <form action="/places" method="post">
+        <div class="mb-4">
+          <label for="name_input" class="form-label">Name</label>
+          <input type="text" name="name" id="name_input" class="form-control form-control-lg" placeholder="e.g. Paris, France" required>
+        </div>
+        
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-lg">Create Place</button>
+          <a href="/places" class="btn btn-link text-muted mt-2 text-center text-decoration-none">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

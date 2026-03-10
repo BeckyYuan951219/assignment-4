@@ -1,16 +1,52 @@
-<h1><%= @place["name"] %></h1>
+<div class="d-flex justify-content-between align-items-center mb-5">
+  <h1 class="page-title mb-0"><%= @place["name"] %></h1>
 
-<h2>My Entries</h2>
-<% for entry in @entries %>
-  <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
-  <p><%= entry["description"] %></p>
-<% end %>
+  <div class="d-flex gap-2">
+    <a href="/places" class="btn btn-secondary">
+      <i class="bi bi-arrow-left"></i> Back
+    </a>
+    <% if session["user_id"] != nil %>
+      <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i> New Post
+      </a>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
-</p>
+<div class="row g-4">
+  <% for entry in @entries %>
+    <div class="col-md-6 col-lg-4">
+      <div class="apple-card h-100 d-flex flex-column border-0 p-0 overflow-hidden">
+        <% if entry.uploaded_image.attached? %>
+          <div class="w-100 overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="<%= url_for(entry.uploaded_image) %>" class="w-100 h-100 object-fit-cover transition-transform hover-scale">
+          </div>
+        <% elsif entry["image_url"].present? %>
+          <div class="w-100 overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="<%= entry["image_url"] %>" class="w-100 h-100 object-fit-cover transition-transform hover-scale">
+          </div>
+        <% else %>
+          <div class="w-100 bg-light d-flex align-items-center justify-content-center" style="aspect-ratio: 4/3;">
+            <i class="bi bi-image text-muted" style="font-size: 2rem;"></i>
+          </div>
+        <% end %>
+        
+        <div class="apple-card-body d-flex flex-column flex-grow-1">
+          <h4 class="fw-bold mb-1"><%= entry["title"] %></h4>
+          <p class="text-muted small mb-3">
+            <i class="bi bi-calendar3"></i> <%= entry["occurred_on"] %>
+          </p>
+          <p class="mb-0 text-secondary" style="font-size: 15px; line-height: 1.5;">
+            <%= entry["description"] %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
+<style>
+  .object-fit-cover { object-fit: cover; }
+  .transition-transform { transition: transform 0.3s ease; }
+  .apple-card:hover .hover-scale { transform: scale(1.05); }
+</style>
